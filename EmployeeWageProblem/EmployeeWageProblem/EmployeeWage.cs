@@ -8,36 +8,42 @@ namespace EmployeeWageProblem
 {
     public class EmployeeWage
     {
+
+       public const int IS_PART_TIME = 1;
+       public const int IS_FUlL_TIME = 2;
+       public const int EMP_RATE_PER_HOUR = 20;
         public void CheckEmployee()
         {
-            int IS_PART_TIME = 1;
-            int IS_FUlL_TIME = 2;
-            int EMP_RATE_PER_HOUR = 20;
             int empHrs = 0;
             int empWages = 0;
             Random random = new Random();
             int empCheck = random.Next(0, 3);
-            if (empCheck == IS_PART_TIME)
+            switch (empCheck)
             {
-                empHrs = 4;
+                case IS_FUlL_TIME:
+                    Console.WriteLine("Employee is full time");
+                    empHrs = 8;
+                    break;
 
-            }
-            else if (empCheck == IS_FUlL_TIME)
-            {
-                empHrs = 8;
+                case IS_PART_TIME:
+                    Console.WriteLine("Employee is part time ");
+                    empHrs = 4;
+                    break;
 
-            }
-            else
-            {
-                empHrs = 0;
+                default:
+                    Console.WriteLine("Employee is absent");
+                    break;
             }
             empWages = empHrs * EMP_RATE_PER_HOUR;
             Console.WriteLine("Emp Wage : " + empWages);
-
         }
-
     }
 }
+
+        
+
+    
+
 
 
 
